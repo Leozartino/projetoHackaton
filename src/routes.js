@@ -45,6 +45,7 @@ routes.post("/pessoas", checkValues, (req, res) => {
 
 routes.patch("/pessoas/:id", checkId, checkValues, (req, res) => {
   let { id } = req.params;
+  id = Number(id);
   const { nome, cidade, data_nasc } = req.body;
   const indexUser = users.findIndex(user => user.id == req.params.id);
   users[indexUser] = { id, nome, cidade, data_nasc };
